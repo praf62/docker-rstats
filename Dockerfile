@@ -11,6 +11,7 @@ RUN apt-get update && \
     apt install -y python3-pip python3-venv && \
     /tmp/clean-layer.sh
 
+RUN apt purge -y python2.7-minimal
 RUN ln -sf /usr/bin/python3.8 /usr/bin/python
 
 RUN apt-get update && \
