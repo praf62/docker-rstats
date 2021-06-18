@@ -62,6 +62,9 @@ RUN apt-get install -y libzmq3-dev default-jdk && \
     /tmp/clean-layer.sh
 
 # Tensorflow and Keras
+# Keras sets up a virtualenv and installs tensorflow
+# in the WORKON_HOME directory, so choose an explicit location for it.
+ENV WORKON_HOME=/usr/local/share/.virtualenvs
 RUN R -e 'keras::install_keras(tensorflow = "2.3", extra_packages = c("pandas", "numpy", "pycryptodome"))'
 
 # Install kaggle libraries.
