@@ -57,10 +57,6 @@ RUN apt-get install -y libzmq3-dev default-jdk && \
     /tmp/clean-layer.sh
 
 # Miniconda
-RUN curl -sL https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o mconda-install.sh && \
-    bash -x mconda-install.sh -b -p miniconda && \
-    rm mconda-install.sh && \
-    /tmp/clean-layer.sh
 RUN R -e 'reticulate::install_miniconda()'
 
 # Tensorflow and Keras
